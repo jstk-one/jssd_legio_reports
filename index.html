@@ -1178,9 +1178,23 @@
         </div>
     </div>
 
+
+            <!-- 버튼 -->
+            <div class="btn-container">
+                <button type="button" onclick="submitReport()">제출</button>
+            </div>
+
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>제출 중...</p>
+        </div>
+    </div>
+
     <script>
         // 관리자가 설정하는 구글 스프레드시트 URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZCT2ZOY5cFZMdeiGlaaTCdDQ40HkbLKn1zQhemoVxMDgZlRjS5C-87ee4s6xeH--u/exec';
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
         // 카테고리별 항목 개수 (정확한 숫자)
         const CATEGORY_COUNTS = {
@@ -1200,6 +1214,8 @@
 
         // 페이지 로드 시 초기화
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('페이지 로드 완료');
+            
             // 현재 연도와 월 설정
             const today = new Date();
             document.getElementById('report_year').value = today.getFullYear();
@@ -1210,6 +1226,8 @@
             
             // 초기 합계 계산
             calculateAllTotals();
+            
+            console.log('초기화 완료');
         });
 
         // 자동 계산 설정
@@ -1336,18 +1354,6 @@
             if (balanceEl) {
                 balanceEl.value = balance;
             }
-        }
-
-        // 알림 표시
-        function showAlert(message, type) {
-            const alert = document.getElementById('alert');
-            alert.textContent = message;
-            alert.className = `alert alert-${type}`;
-            alert.style.display = 'block';
-            
-            setTimeout(() => {
-                alert.style.display = 'none';
-            }, 5000);
         }
 
         // 데이터 수집
@@ -1501,8 +1507,10 @@
             return data;
         }
 
-        // 폼 유효성 검사
+        // 폼 유효성 검사 (개선된 버전 - alert 사용)
         function validateForm() {
+            console.log('폼 유효성 검사 시작');
+            
             const required = [
                 { id: 'report_year', name: '보고 연도' },
                 { id: 'report_month', name: '작성 대상 월' },
@@ -1511,34 +1519,60 @@
             ];
             
             for (const field of required) {
-                const value = document.getElementById(field.id).value.trim();
+                const el = document.getElementById(field.id);
+                const value = el ? el.value.trim() : '';
+                
+                console.log(`검사 중: ${field.name} = "${value}"`);
+                
                 if (!value) {
-                    showAlert(`${field.name}을(를) 입력해주세요.`, 'error');
-                    document.getElementById(field.id).focus();
+                    alert(`⚠️ 필수 입력 항목\n\n${field.name}을(를) 입력해주세요.`);
+                    if (el) el.focus();
                     return false;
                 }
             }
             
+            console.log('유효성 검사 통과');
             return true;
         }
 
-        // 보고서 제출
+        // 보고서 제출 (개선된 버전 - 확실한 피드백)
         async function submitReport() {
-            if (!validateForm()) {
-                return;
-            }
-            
-            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyZCT2ZOY5cFZMdeiGlaaTCdDQ40HkbLKn1zQhemoVxMDgZlRjS5C-87ee4s6xeH--u/exec') {
-                showAlert('관리자에게 문의하세요: 구글 스프레드시트 URL이 설정되지 않았습니다.', 'error');
-                return;
-            }
-            
-            const data = collectFormData();
-            
-            // 로딩 표시
-            document.getElementById('loading').style.display = 'block';
+            console.log('제출 버튼 클릭됨!');
             
             try {
+                // 1. 유효성 검사
+                if (!validateForm()) {
+                    console.log('유효성 검사 실패');
+                    return;
+                }
+                
+                // 2. URL 확인
+                if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                    alert('⚠️ 관리자 설정 필요\n\n구글 스프레드시트 URL이 설정되지 않았습니다.\n관리자에게 문의하세요.');
+                    console.error('Google Script URL이 설정되지 않음');
+                    return;
+                }
+                
+                // 3. 데이터 수집
+                console.log('데이터 수집 중...');
+                const data = collectFormData();
+                console.log('수집된 데이터:', data);
+                
+                // 4. 제출 확인
+                const confirmMsg = `보고서를 제출하시겠습니까?\n\n쁘레시디움: ${data.presidium_name}\n단장: ${data.writer_leader}\n연월: ${data.report_year}년 ${data.report_month}월`;
+                
+                if (!confirm(confirmMsg)) {
+                    console.log('사용자가 제출 취소');
+                    return;
+                }
+                
+                // 5. 로딩 표시
+                const loadingEl = document.getElementById('loading');
+                if (loadingEl) loadingEl.style.display = 'block';
+                
+                console.log('서버로 전송 중...');
+                
+                // 6. 전송
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
@@ -1548,14 +1582,22 @@
                     body: JSON.stringify(data)
                 });
                 
-                // no-cors 모드에서는 응답을 읽을 수 없으므로 성공으로 간주
-                showAlert('보고서가 성공적으로 제출되었습니다!', 'success');
+                console.log('전송 완료');
+                
+                // 7. 성공 메시지
+                alert('✅ 제출 완료!\n\n보고서가 성공적으로 제출되었습니다.');
+                
+                // 8. 폼 초기화 여부 확인
+                if (confirm('폼을 초기화하시겠습니까?')) {
+                    location.reload();
+                }
                 
             } catch (error) {
                 console.error('제출 오류:', error);
-                showAlert('제출 중 오류가 발생했습니다. 다시 시도해주세요.', 'error');
+                alert('❌ 오류 발생\n\n' + error.message + '\n\n다시 시도해주세요.');
             } finally {
-                document.getElementById('loading').style.display = 'none';
+                const loadingEl = document.getElementById('loading');
+                if (loadingEl) loadingEl.style.display = 'none';
             }
         }
 
@@ -1563,6 +1605,9 @@
         function printReport() {
             window.print();
         }
+        
+        // 페이지 로드 시 테스트
+        console.log('JavaScript 로드 완료');
     </script>
 </body>
 </html>
