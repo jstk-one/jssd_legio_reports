@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>레지오 마리애 월례 보고서</title>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -637,501 +638,534 @@
                 </table>
             </div>
 
-            <!-- 7. 교구 Se지시오 활동 (17개 항목) -->
+            <!-- 7. 회계 보고 -->
             <div class="section">
+                <div class="section-title">7. 회계 보고 &lt;잔액에 관계없이 월말기준&gt;</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="finance_carry">이월금</label>
+                        <input type="number" id="finance_carry" min="0" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="finance_income">수입</label>
+                        <input type="number" id="finance_income" min="0" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="finance_expense">지출</label>
+                        <input type="number" id="finance_expense" min="0" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="finance_balance">잔액</label>
+                        <input type="number" id="finance_balance" min="0" value="0" readonly class="readonly-field">
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>중요 지출 내역</label>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>주요내용</th>
+                                <th>금액</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>의연금</td>
+                                <td><input type="text" id="expense1_desc" placeholder="내용"></td>
+                                <td><input type="number" id="expense1_amount" min="0" value="0" placeholder="금액"></td>
+                            </tr>
+                            <tr>
+                                <td>꽃값</td>
+                                <td><input type="text" id="expense2_desc" placeholder="내용"></td>
+                                <td><input type="number" id="expense2_amount" min="0" value="0" placeholder="금액"></td>
+                            </tr>
+                            <tr>
+                                <td>기타</td>
+                                <td><input type="text" id="expense3_desc" placeholder="내용"></td>
+                                <td><input type="number" id="expense3_amount" min="0" value="0" placeholder="금액"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 8. 주요 활동 내역 -->
+            <div class="section">
+                <div class="section-title">8. 주요 활동 내역</div>
+                
+                <!-- 카테고리 1: 교구/Se.지시사항 -->
                 <div class="activity-category">
-                    <h4>7. 교구 Se지시오 활동</h4>
+                    <h4>① 교구/Se.지시사항</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat1_1">교무금 납부</label>
+                            <label for="cat1_1">9시주모경</label>
                             <input type="number" id="cat1_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat1_2">주일학교 교사</label>
+                            <label for="cat1_2">토요기도회</label>
                             <input type="number" id="cat1_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat1_3">주일학교 보조교사</label>
+                            <label for="cat1_3">지구를 위한 공동행동실천</label>
                             <input type="number" id="cat1_3" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat1_4">전례봉사(복사/성가/해설)</label>
+                            <label for="cat1_4">찬미받으소서</label>
                             <input type="number" id="cat1_4" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_5">견진교리</label>
-                            <input type="number" id="cat1_5" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_6">유아세례 교리</label>
-                            <input type="number" id="cat1_6" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_7">혼인교리</label>
-                            <input type="number" id="cat1_7" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_8">기타교리</label>
-                            <input type="number" id="cat1_8" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_9">본당 행사</label>
-                            <input type="number" id="cat1_9" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_10">봉사의 날</label>
-                            <input type="number" id="cat1_10" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_11">교구 행사</label>
-                            <input type="number" id="cat1_11" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_12">쁘레시디움 활동</label>
-                            <input type="number" id="cat1_12" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_13">꾸리아 활동</label>
-                            <input type="number" id="cat1_13" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_14">레지아 활동</label>
-                            <input type="number" id="cat1_14" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_15">레지아 교육</label>
-                            <input type="number" id="cat1_15" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_16">대표자회의</label>
-                            <input type="number" id="cat1_16" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat1_17">순례</label>
-                            <input type="number" id="cat1_17" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat1">0</span>회
+                        카테고리 합계: <span id="total_cat1">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 8. 본당지시오 활동 (12개 항목) -->
-            <div class="section">
+                <!-- 카테고리 2: 본당지시사항 -->
                 <div class="activity-category">
-                    <h4>8. 본당지시오 활동</h4>
+                    <h4>② 본당지시사항</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat2_1">미사참례</label>
+                            <label for="cat2_1">평일미사</label>
                             <input type="number" id="cat2_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat2_2">고해성사</label>
+                            <label for="cat2_2">성시간</label>
                             <input type="number" id="cat2_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat2_3">영성체</label>
+                            <label for="cat2_3">성서백주간</label>
                             <input type="number" id="cat2_3" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat2_4">묵주기도</label>
+                            <label for="cat2_4">복음구절외우기</label>
                             <input type="number" id="cat2_4" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat2_5">성체조배</label>
+                            <label for="cat2_5">가정을위한 기도</label>
                             <input type="number" id="cat2_5" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat2_6">성무일도</label>
+                            <label for="cat2_6">성모동산묵주기도</label>
                             <input type="number" id="cat2_6" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat2_7">성지순례</label>
+                            <label for="cat2_7">사순대림강좌</label>
                             <input type="number" id="cat2_7" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat2_8">묘지참배</label>
-                            <input type="number" id="cat2_8" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat2_9">본당청소</label>
-                            <input type="number" id="cat2_9" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat2_10">본당마당/화단정리</label>
-                            <input type="number" id="cat2_10" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat2_11">성당안팎정화</label>
-                            <input type="number" id="cat2_11" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat2_12">제대/제의정돈</label>
-                            <input type="number" id="cat2_12" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat2">0</span>회
+                        카테고리 합계: <span id="total_cat2">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 9. 냉담자 (3개 항목) -->
-            <div class="section">
+                <!-- 카테고리 3: 입교권면 -->
                 <div class="activity-category">
-                    <h4>9. 냉담자</h4>
+                    <h4>③ 입교권면</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat3_1">방문</label>
+                            <label for="cat3_1">외인입교권면</label>
                             <input type="number" id="cat3_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat3_2">전화</label>
+                            <label for="cat3_2">교리중단자 재권면</label>
                             <input type="number" id="cat3_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat3_3">미사참례 권유</label>
+                            <label for="cat3_3">개종권면</label>
                             <input type="number" id="cat3_3" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat3">0</span>회
+                        카테고리 합계: <span id="total_cat3">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 10. 새영세자 (3개 항목) -->
-            <div class="section">
+                <!-- 카테고리 4: 예비신자 돌봄 -->
                 <div class="activity-category">
-                    <h4>10. 새영세자</h4>
+                    <h4>④ 예비신자 돌봄</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat4_1">방문</label>
+                            <label for="cat4_1">교리반 인도</label>
                             <input type="number" id="cat4_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat4_2">전화</label>
+                            <label for="cat4_2">예비신자 돌봄</label>
                             <input type="number" id="cat4_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat4_3">영적지도</label>
+                            <label for="cat4_3">통신교리자 돌봄</label>
                             <input type="number" id="cat4_3" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat4_4">영세자 돌봄</label>
+                            <input type="number" id="cat4_4" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat4">0</span>회
+                        카테고리 합계: <span id="total_cat4">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 11. 예비신자 (3개 항목) -->
-            <div class="section">
+                <!-- 카테고리 5: 교우돌봄 -->
                 <div class="activity-category">
-                    <h4>11. 예비신자</h4>
+                    <h4>⑤ 교우돌봄</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat5_1">방문</label>
+                            <label for="cat5_1">새영세자돌봄</label>
                             <input type="number" id="cat5_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat5_2">전화</label>
+                            <label for="cat5_2">전입교우 돌봄</label>
                             <input type="number" id="cat5_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat5_3">교리지도</label>
+                            <label for="cat5_3">냉담교우 돌봄</label>
                             <input type="number" id="cat5_3" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat5_4">조당교우 돌봄</label>
+                            <input type="number" id="cat5_4" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat5_5">교우가정방문</label>
+                            <input type="number" id="cat5_5" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat5_6">교우 기타돌봄</label>
+                            <input type="number" id="cat5_6" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat5">0</span>회
+                        카테고리 합계: <span id="total_cat5">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 12. 비신자 (3개 항목) -->
-            <div class="section">
+                <!-- 카테고리 6: 어려운분 돌봄 -->
                 <div class="activity-category">
-                    <h4>12. 비신자</h4>
+                    <h4>⑥ 어려운분 돌봄</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat6_1">방문</label>
+                            <label for="cat6_1">연도</label>
                             <input type="number" id="cat6_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat6_2">전화</label>
+                            <label for="cat6_2">장례미사</label>
                             <input type="number" id="cat6_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat6_3">입교권유</label>
+                            <label for="cat6_3">상차림</label>
                             <input type="number" id="cat6_3" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat6_4">입관</label>
+                            <input type="number" id="cat6_4" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat6_5">출관</label>
+                            <input type="number" id="cat6_5" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat6_6">장지수행</label>
+                            <input type="number" id="cat6_6" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat6_7">삼우미사</label>
+                            <input type="number" id="cat6_7" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat6_8">교우상가방문</label>
+                            <input type="number" id="cat6_8" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat6_9">병자영성체</label>
+                            <input type="number" id="cat6_9" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat6_10">교우환자 돌봄</label>
+                            <input type="number" id="cat6_10" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat6_11">외인상가방문</label>
+                            <input type="number" id="cat6_11" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat6_12">외인환자 돌봄</label>
+                            <input type="number" id="cat6_12" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat6">0</span>회
+                        카테고리 합계: <span id="total_cat6">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 13. 병자 (5개 항목) -->
-            <div class="section">
+                <!-- 카테고리 7: 레지오확장 -->
                 <div class="activity-category">
-                    <h4>13. 병자</h4>
+                    <h4>⑦ 레지오확장</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat7_1">병원방문</label>
+                            <label for="cat7_1">행동단원모집</label>
                             <input type="number" id="cat7_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat7_2">가정방문</label>
+                            <label for="cat7_2">협조단원돌봄</label>
                             <input type="number" id="cat7_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat7_3">전화위로</label>
+                            <label for="cat7_3">행동단원 입단권유</label>
                             <input type="number" id="cat7_3" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat7_4">병자성사</label>
+                            <label for="cat7_4">레지오단원 입단</label>
                             <input type="number" id="cat7_4" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat7_5">임종대세</label>
+                            <label for="cat7_5">성당 단원모집활동</label>
                             <input type="number" id="cat7_5" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat7">0</span>회
+                        카테고리 합계: <span id="total_cat7">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 14. 연령자 (4개 항목) -->
-            <div class="section">
+                <!-- 카테고리 8: 특별활동 -->
                 <div class="activity-category">
-                    <h4>14. 연령자</h4>
+                    <h4>⑧ 특별활동</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat8_1">방문</label>
+                            <label for="cat8_1">복지시설봉사</label>
                             <input type="number" id="cat8_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat8_2">전화</label>
+                            <label for="cat8_2">차량봉사</label>
                             <input type="number" id="cat8_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat8_3">위로</label>
+                            <label for="cat8_3">라파엘천사</label>
                             <input type="number" id="cat8_3" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat8_4">심부름</label>
+                            <label for="cat8_4">가밀로회</label>
                             <input type="number" id="cat8_4" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat8_5">리디아회</label>
+                            <input type="number" id="cat8_5" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat8_6">바오로대학</label>
+                            <input type="number" id="cat8_6" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat8_7">난민돌봄</label>
+                            <input type="number" id="cat8_7" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat8">0</span>회
+                        카테고리 합계: <span id="total_cat8">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 15. 가난한이 (5개 항목) -->
-            <div class="section">
+                <!-- 카테고리 9: 본당협조 -->
                 <div class="activity-category">
-                    <h4>15. 가난한이</h4>
+                    <h4>⑨ 본당협조</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat9_1">방문</label>
+                            <label for="cat9_1">행사준비협조</label>
                             <input type="number" id="cat9_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat9_2">전화</label>
+                            <label for="cat9_2">성체분배</label>
                             <input type="number" id="cat9_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat9_3">위로</label>
+                            <label for="cat9_3">주차봉사</label>
                             <input type="number" id="cat9_3" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat9_4">봉사활동</label>
+                            <label for="cat9_4">성당청소</label>
                             <input type="number" id="cat9_4" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat9_5">물품지원</label>
+                            <label for="cat9_5">주보접기</label>
                             <input type="number" id="cat9_5" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat9_6">헌금봉사</label>
+                            <input type="number" id="cat9_6" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat9_7">성물방봉사</label>
+                            <input type="number" id="cat9_7" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat9_8">성가대</label>
+                            <input type="number" id="cat9_8" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat9_9">미사안내</label>
+                            <input type="number" id="cat9_9" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat9_10">주방봉사</label>
+                            <input type="number" id="cat9_10" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat9_11">전례봉사</label>
+                            <input type="number" id="cat9_11" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat9_12">붕어빵봉사</label>
+                            <input type="number" id="cat9_12" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat9">0</span>회
+                        카테고리 합계: <span id="total_cat9">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 16. 이웃방문 (4개 항목) -->
-            <div class="section">
+                <!-- 카테고리 10: 소공동체활동 -->
                 <div class="activity-category">
-                    <h4>16. 이웃방문</h4>
+                    <h4>⑩ 소공동체활동</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat10_1">새이사온이</label>
+                            <label for="cat10_1">소공동체모임 참석</label>
                             <input type="number" id="cat10_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat10_2">본당교우</label>
+                            <label for="cat10_2">구역.반모임 참석</label>
                             <input type="number" id="cat10_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat10_3">타본당교우</label>
+                            <label for="cat10_3">구역커피봉사</label>
                             <input type="number" id="cat10_3" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat10_4">전입교우</label>
+                            <label for="cat10_4">판공성사표전달</label>
                             <input type="number" id="cat10_4" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat10_5">구역미사</label>
+                            <input type="number" id="cat10_5" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat10_6">구역청소</label>
+                            <input type="number" id="cat10_6" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat10">0</span>회
+                        카테고리 합계: <span id="total_cat10">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 17. 선행활동 (7개 항목) -->
-            <div class="section">
+                <!-- 카테고리 11: 가정성화활동 -->
                 <div class="activity-category">
-                    <h4>17. 선행활동</h4>
+                    <h4>⑪ 가정성화활동</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat11_1">헌혈</label>
+                            <label for="cat11_1">가족함께 기도하기</label>
                             <input type="number" id="cat11_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat11_2">장기/각막기증 서약</label>
+                            <label for="cat11_2">가족함께 미사참례</label>
                             <input type="number" id="cat11_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat11_3">선행지원</label>
+                            <label for="cat11_3">외짝교우기도</label>
                             <input type="number" id="cat11_3" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat11_4">자선활동</label>
-                            <input type="number" id="cat11_4" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat11_5">재난/재해 구호</label>
-                            <input type="number" id="cat11_5" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat11_6">사회봉사</label>
-                            <input type="number" id="cat11_6" min="0" value="0">
-                        </div>
-                        <div class="activity-item">
-                            <label for="cat11_7">기타선행</label>
-                            <input type="number" id="cat11_7" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat11">0</span>회
+                        카테고리 합계: <span id="total_cat11">0</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- 18. 기타활동 (7개 항목) -->
-            <div class="section">
+                <!-- 카테고리 12: 기타활동 -->
                 <div class="activity-category">
-                    <h4>18. 기타활동</h4>
+                    <h4>⑫ 기타활동</h4>
                     <div class="activity-items">
                         <div class="activity-item">
-                            <label for="cat12_1">레지오 교본 정독</label>
+                            <label for="cat12_1">묵주기도</label>
                             <input type="number" id="cat12_1" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat12_2">가톨릭 관련 서적</label>
+                            <label for="cat12_2">복음묵상</label>
                             <input type="number" id="cat12_2" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat12_3">전교자료 배포</label>
+                            <label for="cat12_3">성모님군단</label>
                             <input type="number" id="cat12_3" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat12_4">환경미화 캠페인</label>
+                            <label for="cat12_4">십자가의길</label>
                             <input type="number" id="cat12_4" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat12_5">생명존중 캠페인</label>
+                            <label for="cat12_5">성체조배</label>
                             <input type="number" id="cat12_5" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat12_6">가정미사</label>
+                            <label for="cat12_6">성지순례</label>
                             <input type="number" id="cat12_6" min="0" value="0">
                         </div>
                         <div class="activity-item">
-                            <label for="cat12_7">기타</label>
+                            <label for="cat12_7">피정.교육</label>
                             <input type="number" id="cat12_7" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat12_8">교본공부</label>
+                            <input type="number" id="cat12_8" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat12_9">성경공부</label>
+                            <input type="number" id="cat12_9" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat12_10">평화방송</label>
+                            <input type="number" id="cat12_10" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat12_11">출판물보급</label>
+                            <input type="number" id="cat12_11" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat12_12">작은희생</label>
+                            <input type="number" id="cat12_12" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat12_13">가족사랑표현</label>
+                            <input type="number" id="cat12_13" min="0" value="0">
+                        </div>
+                        <div class="activity-item">
+                            <label for="cat12_14">Cu.월례회의 참석</label>
+                            <input type="number" id="cat12_14" min="0" value="0">
                         </div>
                     </div>
                     <div class="activity-total">
-                        합계: <span id="total_cat12">0</span>회
+                        카테고리 합계: <span id="total_cat12">0</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 19. 회계보고 -->
+            <!-- 9. 기타 -->
             <div class="section">
-                <div class="section-title">19. 회계보고</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>항목</th>
-                            <th>금액 (원)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>전월이월</td>
-                            <td><input type="number" id="finance_carryover" min="0" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td>회비</td>
-                            <td><input type="number" id="finance_membership" min="0" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td>헌금</td>
-                            <td><input type="number" id="finance_donation" min="0" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td>성물/도서판매</td>
-                            <td><input type="number" id="finance_sales" min="0" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td>기타수입</td>
-                            <td><input type="number" id="finance_other_income" min="0" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td><strong>수입합계</strong></td>
-                            <td><input type="number" id="finance_total_income" value="0" readonly class="readonly-field"></td>
-                        </tr>
-                        <tr>
-                            <td>금월지출</td>
-                            <td><input type="number" id="finance_expense" min="0" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td><strong>차월이월</strong></td>
-                            <td><input type="number" id="finance_next_carryover" value="0" readonly class="readonly-field"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="form-group" style="margin-top: 10px;">
-                    <label for="finance_details">지출 내역</label>
-                    <textarea id="finance_details" rows="3" placeholder="상세 지출 내역을 입력하세요..."></textarea>
+                <div class="section-title">9. 기타 (질의 및 건의)</div>
+                <div class="form-group">
+                    <textarea id="other_notes" placeholder="기타 질의 및 건의사항을 입력하세요"></textarea>
                 </div>
             </div>
 
-            <!-- 확인서 -->
-            <div class="section confirmation">
-                상기와 같이 보고합니다.<br>
-                작성일자: <input type="date" id="report_date" style="display: inline-block; width: auto; margin: 0 5px;">
-                단장: <input type="text" id="confirm_leader" style="display: inline-block; width: 150px; margin: 0 5px;"> (인)
+            <!-- 확인 문구 -->
+            <div class="confirmation">
+                <p style="margin-bottom: 10px;">위 작성내용은 사실과 다름 없음을 확인합니다.</p>
+                <div class="form-group">
+                    <label for="confirm_leader">확인자 : 단장</label>
+                    <input type="text" id="confirm_leader" placeholder="단장 이름" style="max-width: 300px;">
+                </div>
             </div>
 
-            <!-- 제출 버튼 -->
+            <!-- 버튼 -->
             <div class="btn-container">
                 <button type="button" onclick="submitReport()">제출</button>
             </div>
@@ -1146,13 +1180,30 @@
 
     <script>
         // 관리자가 설정하는 구글 스프레드시트 URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwdSvoaDFxxmYtzGTv4cO-0q_pFAYz8ZfZaXHR_0nZ7q5JsO-Q4R31peW5Ac_7TnaOV/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZCT2ZOY5cFZMdeiGlaaTCdDQ40HkbLKn1zQhemoVxMDgZlRjS5C-87ee4s6xeH--u/exec';
+
+        // 카테고리별 항목 개수 (정확한 숫자)
+        const CATEGORY_COUNTS = {
+            1: 4,   // 교구/Se.지시사항
+            2: 7,   // 본당지시사항
+            3: 3,   // 입교권면
+            4: 4,   // 예비신자 돌봄
+            5: 6,   // 교우돌봄
+            6: 12,  // 어려운분 돌봄
+            7: 5,   // 레지오확장
+            8: 7,   // 특별활동
+            9: 12,  // 본당협조
+            10: 6,  // 소공동체활동
+            11: 3,  // 가정성화활동
+            12: 14  // 기타활동
+        };
 
         // 페이지 로드 시 초기화
         document.addEventListener('DOMContentLoaded', function() {
-            // 현재 날짜 설정
+            // 현재 연도와 월 설정
             const today = new Date();
-            document.getElementById('report_date').valueAsDate = today;
+            document.getElementById('report_year').value = today.getFullYear();
+            document.getElementById('report_month').value = today.getMonth() + 1;
             
             // 자동 계산 이벤트 리스너
             setupAutoCalculations();
@@ -1208,7 +1259,7 @@
 
             // 활동 항목 변경 시 카테고리 합계 계산
             for (let cat = 1; cat <= 12; cat++) {
-                const itemCount = getItemCountForCategory(cat);
+                const itemCount = CATEGORY_COUNTS[cat];
                 for (let i = 1; i <= itemCount; i++) {
                     const el = document.getElementById(`cat${cat}_${i}`);
                     if (el) {
@@ -1218,18 +1269,10 @@
             }
 
             // 회계보고 자동 계산
-            ['finance_carryover', 'finance_membership', 'finance_donation', 'finance_sales', 'finance_other_income', 'finance_expense'].forEach(id => {
-                document.getElementById(id).addEventListener('input', calculateFinance);
+            ['finance_carry', 'finance_income', 'finance_expense'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', calculateFinance);
             });
-        }
-
-        // 카테고리별 항목 개수
-        function getItemCountForCategory(cat) {
-            const counts = {
-                1: 17, 2: 12, 3: 3, 4: 3, 5: 3, 6: 3,
-                7: 5, 8: 4, 9: 5, 10: 4, 11: 7, 12: 7
-            };
-            return counts[cat] || 0;
         }
 
         // 단원 현황 증감 계산
@@ -1257,15 +1300,20 @@
 
         // 카테고리 합계 계산
         function calculateCategoryTotal(cat) {
-            const itemCount = getItemCountForCategory(cat);
+            const itemCount = CATEGORY_COUNTS[cat];
             let total = 0;
             
             for (let i = 1; i <= itemCount; i++) {
-                const val = parseInt(document.getElementById(`cat${cat}_${i}`).value) || 0;
-                total += val;
+                const el = document.getElementById(`cat${cat}_${i}`);
+                if (el) {
+                    total += parseInt(el.value) || 0;
+                }
             }
             
-            document.getElementById(`total_cat${cat}`).textContent = total;
+            const totalEl = document.getElementById(`total_cat${cat}`);
+            if (totalEl) {
+                totalEl.textContent = total;
+            }
         }
 
         // 모든 카테고리 합계 계산
@@ -1278,18 +1326,16 @@
 
         // 회계 계산
         function calculateFinance() {
-            const carryover = parseInt(document.getElementById('finance_carryover').value) || 0;
-            const membership = parseInt(document.getElementById('finance_membership').value) || 0;
-            const donation = parseInt(document.getElementById('finance_donation').value) || 0;
-            const sales = parseInt(document.getElementById('finance_sales').value) || 0;
-            const otherIncome = parseInt(document.getElementById('finance_other_income').value) || 0;
-            const expense = parseInt(document.getElementById('finance_expense').value) || 0;
+            const carry = parseInt(document.getElementById('finance_carry')?.value) || 0;
+            const income = parseInt(document.getElementById('finance_income')?.value) || 0;
+            const expense = parseInt(document.getElementById('finance_expense')?.value) || 0;
             
-            const totalIncome = carryover + membership + donation + sales + otherIncome;
-            const nextCarryover = totalIncome - expense;
+            const balance = carry + income - expense;
             
-            document.getElementById('finance_total_income').value = totalIncome;
-            document.getElementById('finance_next_carryover').value = nextCarryover;
+            const balanceEl = document.getElementById('finance_balance');
+            if (balanceEl) {
+                balanceEl.value = balance;
+            }
         }
 
         // 알림 표시
@@ -1410,36 +1456,44 @@
                 event6_host: document.getElementById('event6_host').value,
                 event6_date: document.getElementById('event6_date').value,
                 event6_location: document.getElementById('event6_location').value,
-                event6_attendance: document.getElementById('event6_attendance').value
+                event6_attendance: document.getElementById('event6_attendance').value,
+                
+                // 회계보고
+                finance_carry: document.getElementById('finance_carry').value,
+                finance_income: document.getElementById('finance_income').value,
+                finance_expense: document.getElementById('finance_expense').value,
+                finance_balance: document.getElementById('finance_balance').value,
+                expense1_desc: document.getElementById('expense1_desc').value,
+                expense1_amount: document.getElementById('expense1_amount').value,
+                expense2_desc: document.getElementById('expense2_desc').value,
+                expense2_amount: document.getElementById('expense2_amount').value,
+                expense3_desc: document.getElementById('expense3_desc').value,
+                expense3_amount: document.getElementById('expense3_amount').value
             };
             
-            // 활동 항목들 (7-18번, 총 73개 필드)
+            // 활동 항목들 (카테고리별로 정확한 개수)
             for (let cat = 1; cat <= 12; cat++) {
-                const itemCount = getItemCountForCategory(cat);
+                const itemCount = CATEGORY_COUNTS[cat];
                 for (let i = 1; i <= itemCount; i++) {
-                    data[`cat${cat}_${i}`] = document.getElementById(`cat${cat}_${i}`).value;
+                    const el = document.getElementById(`cat${cat}_${i}`);
+                    data[`cat${cat}_${i}`] = el ? el.value : '0';
                 }
+                // 카테고리 합계
+                const totalEl = document.getElementById(`total_cat${cat}`);
+                data[`total_cat${cat}`] = totalEl ? totalEl.textContent : '0';
             }
             
-            // 카테고리 합계들
-            for (let cat = 1; cat <= 12; cat++) {
-                data[`total_cat${cat}`] = document.getElementById(`total_cat${cat}`).textContent;
+            // 기타
+            const otherNotesEl = document.getElementById('other_notes');
+            if (otherNotesEl) {
+                data.other_notes = otherNotesEl.value;
             }
             
-            // 회계보고
-            data.finance_carryover = document.getElementById('finance_carryover').value;
-            data.finance_membership = document.getElementById('finance_membership').value;
-            data.finance_donation = document.getElementById('finance_donation').value;
-            data.finance_sales = document.getElementById('finance_sales').value;
-            data.finance_other_income = document.getElementById('finance_other_income').value;
-            data.finance_total_income = document.getElementById('finance_total_income').value;
-            data.finance_expense = document.getElementById('finance_expense').value;
-            data.finance_next_carryover = document.getElementById('finance_next_carryover').value;
-            data.finance_details = document.getElementById('finance_details').value;
-            
-            // 확인서
-            data.report_date = document.getElementById('report_date').value;
-            data.confirm_leader = document.getElementById('confirm_leader').value;
+            // 확인자
+            const confirmLeaderEl = document.getElementById('confirm_leader');
+            if (confirmLeaderEl) {
+                data.confirm_leader = confirmLeaderEl.value;
+            }
             
             // 제출 타임스탬프
             data.submit_timestamp = new Date().toISOString();
@@ -1474,7 +1528,7 @@
                 return;
             }
             
-            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbyZCT2ZOY5cFZMdeiGlaaTCdDQ40HkbLKn1zQhemoVxMDgZlRjS5C-87ee4s6xeH--u/exec') {
                 showAlert('관리자에게 문의하세요: 구글 스프레드시트 URL이 설정되지 않았습니다.', 'error');
                 return;
             }
